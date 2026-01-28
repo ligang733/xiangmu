@@ -1,14 +1,19 @@
-# 忽略依赖包
+# Dependencies
 node_modules/
-/server/node_modules/
+server/node_modules/
 
-# 忽略打包产物
+# Build outputs
 dist/
+build/
 
-# 忽略本地环境配置
-.env*
+# Environment variables
+.env
+.env.*
+!.env.example
 
-# 忽略编辑器缓存
+# Editor and OS files
 .trae/
 .vscode/
+.idea/
 .DS_Store
+*.log
