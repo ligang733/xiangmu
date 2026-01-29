@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { ArrowLeft, Check, ChevronDown, Copy, Download, FileText, Image as ImageIcon, Loader2, Type, Wand2, X, Play, Video, Heart, Plus, Monitor, Smartphone, Languages, Sparkles } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { PRODUCT_CATEGORIES } from '../config/categoryConfig';
-import { generatePrompt } from '../services/geminiService';
 import type { GenerateRequest } from '../types';
 
 const PLATFORM_OPTIONS = [
@@ -17,20 +16,6 @@ const COUNTRY_OPTIONS = [
   { label: '日本', value: 'jp' },
   { label: '欧洲', value: 'eu' },
   { label: '拉美/巴西/墨西哥', value: 'latam' }
-];
-
-const LANGUAGE_OPTIONS = [
-  'English',
-  'Chinese',
-  'Japanese',
-  'Korean',
-  'German',
-  'French',
-  'Spanish',
-  'Portuguese',
-  'Italian',
-  'Russian',
-  'Arabic'
 ];
 
 interface ScrapedProduct {
@@ -1278,7 +1263,7 @@ export const Scraper = () => {
                                   <button
                                     type="button"
                                     key={opt.id}
-                                    onClick={() => handleOptimizeTitle(opt.label)}
+                                    onClick={() => handleManualOptimizeTitle(opt.label)}
                                     className="w-full text-left px-3 py-2 text-xs text-[#94a3b8] hover:bg-[#00f0ff]/10 hover:text-[#00f0ff] transition-colors border-b border-[#1e293b] last:border-0 font-mono"
                                   >
                                     {'>'} {opt.label}
